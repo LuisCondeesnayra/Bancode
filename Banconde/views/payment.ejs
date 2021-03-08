@@ -1,0 +1,73 @@
+<%- include ("partials/header") -%>
+
+<div class="container">
+  <main>
+          <h1 class="mb-3 text-center">Pago</h1>
+      <form action="/confirmacion" method="post" class="needs-validation" novalidate>
+          <div class="my-3 ">
+            <div class="form-check">
+              <input id="credit" name="paymentMethod" type="radio" value="credito" class="form-check-input" checked required>
+              <label class="form-check-label" name="card" for="credit">Tarjeta de credito</label>
+            </div>
+            <div class="form-check">
+              <input id="debit" name="paymentMethod" type="radio" value="debito" class="form-check-input" required>
+              <label class="form-check-label" name="card"  for="debit">Tarjeta de debito</label>
+            </div>
+          </div>
+
+          <div class="row gy-3">
+            <div class="col-md-6">
+
+              <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
+              <input type="text" name="cardName" class="form-control" id="cc-name" placeholder="" required>
+              <small class="text-muted">Nombre completo como se muestra en la tarjeta</small>
+              <div class="invalid-feedback">
+              Nombre es obligatorio
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="cc-number" class="form-label">Numero de la tarjeta </label>
+              <input type="text" pattern="\d*" maxlength="16" name="cardNumber" class="form-control" id="cc-number" placeholder="" required>
+              <div class="invalid-feedback">
+            Numero de la tarjeta es obligatorio
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <label for="ccm-expiration" class="form-label">Fecha de expiración</label>
+              <input type="text" class="form-control" pattern="\d*" maxlength="2" name="expDatem" id="cc-expirationm" placeholder="MM" required>
+              <input type="text" class="form-control" pattern="\d*" maxlength="2" name="expDatey" id="cc-expirationy" placeholder="YY" required>
+              <div class="invalid-feedback">
+              Fecha de Expiracion obligatoria
+              </div>
+            </div>
+
+
+
+            <div class="col-md-3">
+              <label for="cc-cvv" class="form-label">CVV</label>
+              <input type="text" pattern="\d*" name="cvvCard" class="form-control" maxlength="3" id="cc-cvv" placeholder="" required>
+              <div class="invalid-feedback">
+            Codigo de seguridad obligatorio
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label for="cc-cvv" class="form-label">Cantidad</label>
+              <input type="number" name="quantity" min="1" step="any" placeholder="$XXXX.XX"/>
+                        <div class="invalid-feedback">
+                          Cantidad es obligatoria
+              </div>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Confirmar Cobro</button>
+        </form>
+
+
+  </main>
+
+
+<%- include ("partials/footer") -%>
